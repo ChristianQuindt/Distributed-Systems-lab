@@ -1,0 +1,34 @@
+
+3.1
+1. beispiel
+der client erstellt einen request socket und verbindet sich mit der adresse des servers.
+dann schickt er "Hello World" über das socket an die zmq-schnittstelle, die die nachricht in ihre warteschlange steckt.
+der client wartet dann, bis vom server eine nachricht zurück kommt.
+wenn der server gestartet wird, erhält er aus der queue eine nachricht und verarbeitet diese und schickt sie zurück.
+der client verschickt stop und terminiert damit den server.
+
+2. beispiel
+wie im ersten beispiel legen die zwei clienten jeweils ihre nachricht in die queue, welche dann nicht in dieser
+reihenfolge abgearbeitet werden, sondern erst komplett client, dannach client1
+
+
+
+3.2
+1. beispiel
+der client sagt, zu welchem 'thema' er nachrichten bekommen will, und der server sendet diese aus.
+dabei können mehrere clienten zum gleichen thema eine nachricht bekommen.
+die nachricht zu einem thema, das der client nicht anfordert, wird dabei ignoriert. (er will nur time, date
+interessiert ihn nicht)
+
+2. beispiel
+der eine client fordert nachrichten zum thema time, der andere zum thema date an. diese werden beide über das gleiche
+socket gesendet, nur aber von dem clienten abehört, der sich dazu interessiert.
+
+
+
+3.3
+1.beispiel
+der worker arbeitet erst die aufgaben des einen farmers ab, danach die des anderen
+
+2.beispiel
+die beiden worker teilen sich die workload 50/50
